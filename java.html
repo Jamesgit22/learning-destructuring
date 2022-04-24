@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+
+// April 24 2022 Learning destructuring :
+
+//  Creating to arrays to practice with
+
+// const animals = ["Dog", "Cat", "Zebra", "Tiger", "Bear", "Whale"];
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+
+// We can now use destructuring syntax to easily access elements of these arrays.
+// First we will use a method without this to understand the difference.
+
+// Let's declare two variables and assign them the first (0) and second (1) positions
+// in the array "animals"
+
+// let a = animals[0];
+// let b = animals[1];
+
+// Now lets use console.log to check if the value of (a) == "Dog" , and 
+// if the value of (b) == "Cat".
+
+// console.log(a);
+// console.log(b);
+
+// variables (a) and (b) now hold the value of the 0 and 1 positions
+// of the animals array.
+
+
+// This is not a bad method for small data sets but for practice
+//lets go ahead and try to do the same thing using detructuring.
+
+
+// We will use the same arrays as before
+
+//   const animals = ["Dog", "Cat", "Zebra", "Tiger", "Bear", "Whale"];
+//   const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+
+//We can clean up the process of assigning two variabls be declaring both of 
+// them in a single line.
+
+//const [a, b] = animals;
+
+//To use this method, we declare our (a) and (b) variables inside of [] in 
+// the same position as the element we want to assing from the array.
+
+// So that means if (a) is declared in the first slot in the [first, b] it 
+//will corespond with the first position in the animals array ["Dog",,,].
+
+//Lets bring that assignment back up to look at the right side of the assignment(=)
+
+///////              const [a, b] = animals;
+
+//On the right hand side of this assingment, we enter the name of the array we
+// want to assign the elements from.
+
+// lets now console.log to see if it assigned our values correctly.
+
+// console.log(a);
+// console.log(b);
+
+// Great it does!
+
+// Another great addition to using destructuring is adding in the
+// use of the spread oporator (...). Using this, we can take the same
+// example above where we assigned (a) and (b) and create a new vaiable (c)
+// and assign the rest of the array to (c).
+
+const animals = ["Dog", "Cat", "Zebra", "Tiger", "Bear", "Whale"];
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+
+const [a, b, ...c] = animals;
+
+console.log(c);
+
+// Now (c) has the value of the rest of the array 
+// ["Zebra", "Tiger", "Bear", "Whale"]
+
+
+// We can also use the "spread" (...) technique to concatonate two arrays
+// combine the array animals with numbers.
+
+// lets make a new array and sread to quickly assign all elements in the array
+
+const newArray = [...animals, ...numbers];
+
+console.log(newArray);
+
+// This gives newArray the value -> 
+//[ "Dog", "Cat", "Zebra", "Tiger", "Bear", "Whale", 1, 2, 3, 4, 5, 6, 7, 8]
+
+// Now lets switch gears and see how this idea works with functions.
+
+//Lets make a function that outputs two results into and array. We want this function to 
+// take two arguments and return the sum as the first result, and the product
+// as the second result.
+
+// function sumAndMult(a, b) {
+//     return [a+b , a*b]
+// }
+//console.log(sumAndMult(2,4));
+// lets assign the outputs to vaiables using destructuring.
+
+// const [sum, mult] = sumAndMult(2,4); 
+
+// console.log(sum);
+// console.log(mult);
+
+// Since our function returns array, we were able to assing multiple variable at 
+// once using destructuring. 
+
+// Another cool part of this is that we can assign a defult value to a variable
+// from a function.
+
+// Lets take the same function above and add a division property to it.
+
+// function sumAndMultDivide(a, b) {
+//     return [a+b , a*b, a/b];
+// }
+// const [sum, mult, divide = "no division"] = sumAndMultDivide(2,4);
+//                        ^^^ This means that if there is no division it will 
+// //                            it will return the string "no division".
+// console.log(sum);
+// console.log(mult);
+// console.log(divide);
+
+// Lets now make the defult value of divide kick in by removing the division
+// section of the function.
+
+function sumAndMultDivide(a, b) {
+    return [a+b , a*b]; // <-- Division property removed from function.
+}
+const [sum, mult, divide = "no division"] = sumAndMultDivide(2,4);
+
+console.log(sum);
+console.log(mult);
+console.log(divide);
+
+
+
+    </script>
+
+
+</body>
+</html>
